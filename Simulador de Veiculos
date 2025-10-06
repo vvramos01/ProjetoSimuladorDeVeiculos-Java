@@ -1,0 +1,50 @@
+class Veiculo {
+   String marca;
+   String modelo;
+   double velocidadeAtual;
+   void acelerar(double valor) {
+       velocidadeAtual += valor;
+   }
+   void frear(double valor) {
+       velocidadeAtual -= valor;
+       if (velocidadeAtual < 0) velocidadeAtual = 0;
+   }
+   void parar() {
+       velocidadeAtual = 0;
+   }
+   public String toString() {
+       return "Veiculo [marca=" + marca + ", modelo=" + modelo + ", velocidadeAtual=" + velocidadeAtual + "]";
+   }
+}
+class Carro extends Veiculo {
+   int portas;
+   void buzinar() {
+       System.out.println("Buzina: BEEP BEEP!");
+   }
+   public String toString() {
+       return "Carro [marca=" + marca + ", modelo=" + modelo + ", velocidadeAtual=" + velocidadeAtual + ", portas=" + portas + "]";
+   }
+}
+public class SimuladorVeiculos {
+   public static void main(String[] args) {
+       Veiculo v = new Veiculo();
+       v.marca = "Honda";
+       v.modelo = "CG 160";
+       v.velocidadeAtual = 0;
+       v.acelerar(50);
+       v.frear(10);
+       v.parar();
+       System.out.println(v);
+       Carro c = new Carro();
+       c.marca = "Toyota";
+       c.modelo = "Corolla";
+       c.portas = 4;
+       c.velocidadeAtual = 0;
+       c.acelerar(60);
+       c.frear(20);
+       c.buzinar();
+       System.out.println(c);
+   }
+}
+
+
